@@ -98,6 +98,13 @@
 
 <script>
   // code here for above problem
+
+  var button = document.getElementById("popup-alert-button");
+
+  button.addEventListener('click', function(){
+                                   alert("I'm a button!\nWheeeeee!");
+                                   })
+
 </script>
 
 
@@ -112,10 +119,19 @@
   <i id="message-to-change">hello</i>
   <button id="change-hello-to-goodbye-button">Turn <b>Hello</b> Into <b>Goodbye</b></button>
   <!-- Hey, look, that was another way to do a button - what might it be good for? -->
+  <!-- Adding span tags? (bold, italics, etc.) -->
 </fieldset>
 
 <script>
   // code here for above-problem
+
+  var button = document.getElementById("change-hello-to-goodbye-button");
+  var greeting = document.getElementById("message-to-change");
+
+  button.addEventListener('click', function() {
+                                   greeting.innerText = "goodbye";
+                                   })
+
 </script>
 
 <div class="hint">
@@ -145,6 +161,14 @@
 
 <script>
   // code here for above problem
+
+var favColorForm = document.getElementById("prevent-form-submission-form")
+
+favColorForm.addEventListener('submit', function(evt){
+                                        alert("Alert!");
+                                        evt.preventDefault();
+                                        })
+
 </script>
 
 <div class="hint">
@@ -174,22 +198,26 @@
 </fieldset>
 
 <script>
-//  Here's a stub of a function you can use!
+  // Here's a stub of a function you can use!
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+  function reverseString() {
+    var msg = "Porcupines are cute";
+
+    // do some stuff here to reverse that string into a new variable
+    var newMsg = "";
+
+    for (var i = 1; i <= msg.length; i++){
+      newMsg = newMsg.concat(msg[msg.length-(i)]);
+    }
+
+    alert(newMsg);
+  }
 
 // Here's a stub of event stuff you could use
-//
+  var button = document.getElementById('reverse-string-button');
 
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+  button.addEventListener('click', reverseString);
+
 </script>
 
 
@@ -212,8 +240,14 @@
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
 
+<script src="https://code.jquery.com/jquery.js"></script>
+
 <script>
   // code here for above problem
+  $(".tricky-to-find").click(function(){
+                             alert("Pop!");
+                             })
+
 </script>
 
 <div class="hint">
@@ -241,6 +275,10 @@
 
 <script>
   // put your code here
+  $("#kittenz-rule").dblclick(function(){
+                                  $("#kittenz-rule").attr("src", "https://s-media-cache-ak0.pinimg.com/236x/e5/fb/24/e5fb2479a88c904b51c90e55702f7b56.jpg")
+                                  })
+
 </script>
 
 <div class="hint">
@@ -274,6 +312,10 @@
 
 <script>
   // put your code here
+  $("#make-a-porcupine").click(function(){
+                             $("#cute-porcupine-image").delay(1000).fadeIn(5000);
+                             })
+
 </script>
 
 <div class="hint">
@@ -456,9 +498,10 @@
     }
   }
   setInterval(blink, 500);
+
 </script>
 
+<!--   <script src="js-skills.js"></script> -->
 
-<script src="js-skills.js"></script>
 </body>
 </html>
