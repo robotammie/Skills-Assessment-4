@@ -358,7 +358,14 @@ favColorForm.addEventListener('submit', function(evt){
 </fieldset>
 
 <script>
-  // put your code here
+  // on submit action, script incorperates the value submitted itno a longer string, then returns the string to the user as html in the div below the form
+  $("#agreeable-form").submit(function(){
+                              var agreement = "";
+                              agreement = agreement.concat("I like ").concat($("#favorite-food-input").val()).concat(", too!");
+                              $("#agreeable-text").html(agreement);
+                              event.preventDefault();
+                              })
+
 </script>
 
 <div class="hint">
@@ -388,12 +395,40 @@ favColorForm.addEventListener('submit', function(evt){
 
 <script>
   // put your code here
+  function playGame() {
+    // set secret number between 1 and 100
+    var sercretNum = Math.ceil(Math.random() * 100);
+    
+    // until the player guesses the secret number correctly...
+    var playing = true;
+    // console.log(sercretNum);
+    while (playing){
+      // get user's guess, compare it to the secret number, and respond accordingly
+      var guess = prompt("Please guess a number between 1 and 100");
+      // console.log(guess);
+
+      if (guess == sercretNum){
+        alert("Congratulations! You guessed the number!");
+        // exit while loop/end function
+        playing = false;
+      }
+      else if (guess > sercretNum){
+        alert("Your guess (".concat(guess).concat(") was too high. Please try again."));
+      }
+      else {
+        alert("Your guess (".concat(guess).concat(") was too low. Please try again."));
+      }
+    }
+  }
+
+
+  $("#play-guessing-game").click(playGame);
+
 </script>
 
 <div class="hint">
   <div>
-    How do you turn the string "42" into the integer 42 in Javascript? I'll bet
-    StackOverflow knows!
+    How do you turn the string "42" into the integer 42 in Javascript? I'll bet StackOverflow knows!
   </div>
 </div>
 
